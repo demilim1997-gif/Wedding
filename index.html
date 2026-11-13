@@ -20,7 +20,7 @@ body {
 }
 
 header {
-    padding: 65px 15px 50px;
+    padding: 55px 15px 40px;
     background: linear-gradient(135deg, #eee4d5, #faf7f1);
     border-bottom: 1px solid #d9c5a6;
 }
@@ -78,6 +78,10 @@ input {
 }
 
 button {
+    cursor: pointer;
+}
+
+.search-button {
     display: block;
     width: 100%;
     max-width: 430px;
@@ -91,10 +95,6 @@ button {
     letter-spacing: 2px;
 }
 
-button:active {
-    opacity: 0.8;
-}
-
 #result {
     display: none;
     margin: 25px auto;
@@ -106,73 +106,9 @@ button:active {
 }
 
 .table-number {
-    font-size: 42px;
+    font-size: 35px;
     color: #b49a75;
     margin: 15px;
-}
-
-.guest-list {
-    padding: 0;
-    list-style: none;
-    line-height: 2;
-    font-size: 14px;
-}
-
-.map {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 10px;
-    margin: 30px auto;
-    max-width: 500px;
-}
-
-.table {
-    width: 100%;
-    max-width: none;
-    min-width: 0;
-    aspect-ratio: 1 / 1;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #d8c5a8;
-    border-radius: 50%;
-    background: white;
-    color: #806d55;
-    font-size: 13px;
-    cursor: pointer;
-}
-
-.map button.table {
-    border: none;
-    border-radius: 0;
-    background:
-        radial-gradient(circle at 50% 50%, #e8d8bd 0 30%, #b49a75 31% 34%, transparent 35%),
-        radial-gradient(circle at 50% 7%, #b49a75 0 6%, transparent 7%),
-        radial-gradient(circle at 80% 20%, #b49a75 0 6%, transparent 7%),
-        radial-gradient(circle at 93% 50%, #b49a75 0 6%, transparent 7%),
-        radial-gradient(circle at 80% 80%, #b49a75 0 6%, transparent 7%),
-        radial-gradient(circle at 50% 93%, #b49a75 0 6%, transparent 7%),
-        radial-gradient(circle at 20% 80%, #b49a75 0 6%, transparent 7%),
-        radial-gradient(circle at 7% 50%, #b49a75 0 6%, transparent 7%),
-        radial-gradient(circle at 20% 20%, #b49a75 0 6%, transparent 7%);
-    color: #806d55;
-    font-weight: bold;
-}
-
-.table.active {
-    background: #b49a75;
-    color: white;
-    border-color: #b49a75;
-    box-shadow: 0 0 12px #cbb28e;
-}
-
-.vip {
-    background: #eee2cc;
-    border: 1px solid #b49a75;
-    color: #8b6b3e;
-    font-weight: bold;
 }
 
 .stage {
@@ -185,7 +121,81 @@ button:active {
 }
 
 .vip-area {
-    margin: 20px auto 35px;
+    margin: 25px auto 35px;
+}
+
+.map {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px 8px;
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+/* 圆桌图案 */
+.table {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background:
+        radial-gradient(circle at 50% 50%,
+        #eee1ca 0 32%,
+        #b49a75 33% 36%,
+        transparent 37%),
+        radial-gradient(circle at 50% 5%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 95% 50%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 50% 95%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 5% 50%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 18% 18%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 82% 18%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 18% 82%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 82% 82%, #b49a75 0 7%, transparent 8%);
+    color: #806d55;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.table.active {
+    filter: drop-shadow(0 0 5px #b49a75);
+    transform: scale(1.08);
+}
+
+.table.active::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid #b49a75;
+    border-radius: 50%;
+}
+
+.vip {
+    width: 105px;
+    height: 105px;
+    margin: auto;
+    background:
+        radial-gradient(circle at 50% 50%,
+        #f3e5c9 0 32%,
+        #b49a75 33% 36%,
+        transparent 37%),
+        radial-gradient(circle at 50% 5%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 95% 50%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 50% 95%, #b49a75 0 7%, transparent 8%),
+        radial-gradient(circle at 5% 50%, #b49a75 0 7%, transparent 8%);
+    color: #80613b;
+    font-size: 14px;
+}
+
+.guest-list {
+    padding: 0;
+    list-style: none;
+    line-height: 2;
+    font-size: 14px;
 }
 
 footer {
@@ -198,16 +208,15 @@ footer {
 
 @media(max-width:400px) {
     .map {
-        gap: 6px;
-    }
-
-    .table {
-        padding: 11px 1px;
-        font-size: 11px;
+        gap: 10px 5px;
     }
 
     h1 {
         font-size: 29px;
+    }
+
+    .table {
+        font-size: 10px;
     }
 }
 </style>
@@ -217,11 +226,8 @@ footer {
 
 <header>
     <div class="small-title">THE WEDDING CELEBRATION</div>
-
     <h1>Benjamin & Demi</h1>
-
     <div class="divider">✧ ───── ♡ ───── ✧</div>
-
     <div class="date">26 DECEMBER 2026</div>
 </header>
 
@@ -241,7 +247,7 @@ footer {
         onkeydown="if(event.key==='Enter') searchGuest()"
     >
 
-    <button onclick="searchGuest()">
+    <button class="search-button" onclick="searchGuest()">
         SEARCH YOUR TABLE
     </button>
 
@@ -258,11 +264,10 @@ footer {
     <div class="stage">STAGE</div>
 
     <div class="vip-area">
-        <div class="table vip"
-             onclick="showTable(1)"
-             style="width:90px;margin:auto;padding:18px;">
+        <button class="table vip" id="vipTable"
+            onclick="showTable(1)">
             👑 01
-        </div>
+        </button>
         <p class="description">VIP TABLE</p>
     </div>
 
@@ -280,22 +285,22 @@ footer {
 
 <script>
 
-// 暂时使用测试名字，之后替换成真实名单
+// 测试宾客名单
+// 之后再替换成真实名单
+
 const guests = [
-    {name:"Test Guest 1", table:1},
-    {name:"Test Guest 2", table:1},
-    {name:"Test Guest 3", table:2},
-    {name:"Test Guest 4", table:2},
-    {name:"VIP Guest 1", table:31},
-    {name:"VIP Guest 2", table:31}
+    {name:"Test Guest 1", table:2},
+    {name:"Test Guest 2", table:2},
+    {name:"Test Guest 3", table:3},
+    {name:"Test Guest 4", table:3},
+    {name:"VIP Guest 1", table:1},
+    {name:"VIP Guest 2", table:1}
 ];
 
-let selectedTable = null;
 
-// 建立30张普通桌
+// 建立30张普通桌：02至31号
+
 const map = document.getElementById("seatingMap");
-
-map.innerHTML = "";
 
 for (let i = 2; i <= 31; i++) {
 
@@ -312,16 +317,15 @@ for (let i = 2; i <= 31; i++) {
     map.appendChild(button);
 }
 
+
 // 搜索宾客
+
 function searchGuest() {
 
-    const name = document
-        .getElementById("guestName")
-        .value.trim();
-
+    const name = document.getElementById("guestName").value.trim();
     const result = document.getElementById("result");
 
-    if(!name) {
+    if (!name) {
         alert("Please enter your name.");
         return;
     }
@@ -332,43 +336,44 @@ function searchGuest() {
 
     result.style.display = "block";
 
-    document.querySelectorAll(".table").forEach(t => {
-        t.classList.remove("active");
-    });
-
-    if(!guest) {
-
-        result.innerHTML =
-        "<p>Sorry, we couldn't find your name.</p>" +
-        "<p>Please check your spelling.</p>";
-
+    if (!guest) {
+        result.innerHTML = `
+            <p>Sorry, we couldn't find your name.</p>
+            <p>Please check your spelling.</p>
+        `;
         return;
     }
 
-    selectedTable = guest.table;
+    const tableText = guest.table === 1
+        ? "👑 VIP TABLE"
+        : "TABLE " + String(guest.table).padStart(2, "0");
 
     result.innerHTML = `
         <p>WELCOME TO OUR CELEBRATION</p>
         <p>Your table number is</p>
-        <div class="table-number">
-            ${guest.table === 31 ? "👑 VIP" : "TABLE " + String(guest.table).padStart(2,"0")}
-        </div>
-        <button onclick="showTable(${guest.table})">
+        <div class="table-number">${tableText}</div>
+        <button class="search-button"
+            onclick="showTable(${guest.table})">
             VIEW TABLE GUESTS
         </button>
     `;
 
     highlightTable(guest.table);
-
     result.scrollIntoView({behavior:"smooth"});
 }
 
+
 // 显示同桌宾客
+
 function showTable(number) {
 
     const members = guests.filter(
         g => g.table === number
     );
+
+    const title = number === 1
+        ? "👑 VIP TABLE 01"
+        : "TABLE " + String(number).padStart(2, "0");
 
     const box = document.getElementById("mapResult");
 
@@ -381,7 +386,7 @@ function showTable(number) {
             border-radius:8px;
             max-width:430px;
         ">
-            <h2>${number === 31 ? "👑 VIP TABLE" : "TABLE " + String(number).padStart(2,"0")}</h2>
+            <h2>${title}</h2>
             <p class="description">
                 ${members.length} registered guests
             </p>
@@ -395,23 +400,22 @@ function showTable(number) {
     `;
 
     highlightTable(number);
-
     box.scrollIntoView({behavior:"smooth"});
 }
 
-// 标示桌号
+
+// 高亮选中的桌子
+
 function highlightTable(number) {
 
     document.querySelectorAll(".table").forEach(t => {
         t.classList.remove("active");
     });
 
-    if(number !== 31) {
-        document.getElementById("table-" + number)
-            .classList.add("active");
+    if (number === 1) {
+        document.getElementById("vipTable").classList.add("active");
     } else {
-        document.querySelector(".vip")
-            .classList.add("active");
+        document.getElementById("table-" + number).classList.add("active");
     }
 }
 
