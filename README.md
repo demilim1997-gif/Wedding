@@ -1,2 +1,2 @@
 # Wedding
-Benjamin &amp; Demi
+Wedding Seating Plan
