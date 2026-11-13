@@ -127,13 +127,27 @@ button:active {
 }
 
 .table {
-    padding: 13px 2px;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    aspect-ratio: 1 / 1;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border: 1px solid #d8c5a8;
     border-radius: 50%;
     background: white;
     color: #806d55;
     font-size: 13px;
     cursor: pointer;
+}
+
+.map button.table {
+    width: 100%;
+    max-width: none;
+    margin: 0;
 }
 
 .table.active {
