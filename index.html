@@ -1,42 +1,392 @@
-<h2>Find Your Table</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<p class="description">
-    Welcome to our wedding celebration.<br>
-    Please enter your name to find your seat.
-</p>
+<title>Benjamin & Demi | Wedding</title>
 
-<input
-    type="text"
-    id="guestName"
-    placeholder="Enter your full name"
-    onkeydown="if(event.key==='Enter') searchGuest()"
->
+<style>
+* {
+    box-sizing: border-box;
+}
 
-<button onclick="searchGuest()">
-    SEARCH YOUR TABLE
-</button>
+body {
+    margin: 0;
+    background: #faf7f1;
+    color: #665644;
+    font-family: Georgia, serif;
+    text-align: center;
+}
 
-<div id="result"></div>
+header {
+    padding: 65px 15px 50px;
+    background: linear-gradient(135deg, #eee4d5, #faf7f1);
+    border-bottom: 1px solid #d9c5a6;
+}
 
-<div class="divider">✧ ───── ♡ ───── ✧</div>
+.small-title {
+    font-size: 11px;
+    letter-spacing: 5px;
+}
 
-<h2>Seating Plan</h2>
+h1 {
+    font-size: 36px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin: 25px 0;
+}
 
-<p class="description">
-    Tap a table to view the guest list.
-</p>
+.date {
+    font-size: 13px;
+    letter-spacing: 4px;
+}
 
-<div class="stage">STAGE</div>
+.divider {
+    color: #b69b75;
+    margin: 25px;
+}
 
-<div class="vip-area">
-    <div class="table vip"
-         onclick="showTable(31)"
-         style="width:90px;margin:auto;padding:18px;">
-        👑 31
+.container {
+    max-width: 650px;
+    margin: auto;
+    padding: 30px 20px;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: normal;
+    letter-spacing: 2px;
+}
+
+.description {
+    font-size: 13px;
+    color: #998875;
+    line-height: 1.8;
+}
+
+input {
+    width: 100%;
+    max-width: 430px;
+    padding: 17px;
+    margin-top: 20px;
+    border: 1px solid #d6c4a7;
+    border-radius: 5px;
+    background: white;
+    font-size: 15px;
+    text-align: center;
+}
+
+button {
+    display: block;
+    width: 100%;
+    max-width: 430px;
+    margin: 15px auto;
+    padding: 16px;
+    background: #b49a75;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+#result {
+    display: none;
+    margin: 25px auto;
+    padding: 25px;
+    max-width: 430px;
+    background: white;
+    border: 1px solid #dfcfb7;
+    border-radius: 8px;
+}
+
+.table-number {
+    font-size: 42px;
+    color: #b49a75;
+    margin: 15px;
+}
+
+.guest-list {
+    padding: 0;
+    list-style: none;
+    line-height: 2;
+    font-size: 14px;
+}
+
+.map {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    margin: 30px auto;
+    max-width: 500px;
+}
+
+.table {
+    padding: 13px 2px;
+    border: 1px solid #d8c5a8;
+    border-radius: 50%;
+    background: white;
+    color: #806d55;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.table.active {
+    background: #b49a75;
+    color: white;
+    border-color: #b49a75;
+    box-shadow: 0 0 12px #cbb28e;
+}
+
+.vip {
+    background: #eee2cc;
+    border: 1px solid #b49a75;
+    color: #8b6b3e;
+    font-weight: bold;
+}
+
+.stage {
+    max-width: 430px;
+    margin: 20px auto;
+    padding: 15px;
+    background: #e9dfd0;
+    letter-spacing: 4px;
+    font-size: 13px;
+}
+
+.vip-area {
+    margin: 20px auto 35px;
+}
+
+footer {
+    padding: 35px 10px;
+    background: #eee4d5;
+    font-size: 11px;
+    letter-spacing: 3px;
+    line-height: 2;
+}
+
+@media(max-width:400px) {
+    .map {
+        gap: 6px;
+    }
+
+    .table {
+        padding: 11px 1px;
+        font-size: 11px;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="small-title">THE WEDDING CELEBRATION</div>
+
+    <h1>Benjamin & Demi</h1>
+
+    <div class="divider">✧ ───── ♡ ───── ✧</div>
+
+    <div class="date">26 DECEMBER 2026</div>
+</header>
+
+<div class="container">
+
+    <h2>Find Your Table</h2>
+
+    <p class="description">
+        Welcome to our wedding celebration.<br>
+        Please enter your name to find your seat.
+    </p>
+
+    <input
+        type="text"
+        id="guestName"
+        placeholder="Enter your full name"
+        onkeydown="if(event.key==='Enter') searchGuest()"
+    >
+
+    <button onclick="searchGuest()">
+        SEARCH YOUR TABLE
+    </button>
+
+    <div id="result"></div>
+
+    <div class="divider">✧ ───── ♡ ───── ✧</div>
+
+    <h2>Seating Plan</h2>
+
+    <p class="description">
+        Tap a table to view the guest list.
+    </p>
+
+    <div class="stage">STAGE</div>
+
+    <div class="vip-area">
+        <div class="table vip"
+             onclick="showTable(31)"
+             style="width:90px;margin:auto;padding:18px;">
+            👑 31
+        </div>
+        <p class="description">VIP TABLE</p>
     </div>
-    <p class="description">VIP TABLE</p>
+
+    <div id="seatingMap" class="map"></div>
+
+    <div id="mapResult"></div>
+
 </div>
 
-<div id="seatingMap" class="map"></div>
+<footer>
+    WITH LOVE & GRATITUDE<br>
+    BENJAMIN & DEMI<br>
+    26.12.2026
+</footer>
 
-<div id="mapResult"></div>
+<script>
+
+// 暂时使用测试名字，之后替换成真实名单
+const guests = [
+    {name:"Test Guest 1", table:1},
+    {name:"Test Guest 2", table:1},
+    {name:"Test Guest 3", table:2},
+    {name:"Test Guest 4", table:2},
+    {name:"VIP Guest 1", table:31},
+    {name:"VIP Guest 2", table:31}
+];
+
+let selectedTable = null;
+
+// 建立30张普通桌
+const map = document.getElementById("seatingMap");
+
+for(let i=1; i<=30; i++) {
+
+    const button = document.createElement("div");
+
+    button.className = "table";
+    button.id = "table-" + i;
+    button.textContent = String(i).padStart(2,"0");
+
+    button.onclick = () => showTable(i);
+
+    map.appendChild(button);
+}
+
+// 搜索宾客
+function searchGuest() {
+
+    const name = document
+        .getElementById("guestName")
+        .value.trim();
+
+    const result = document.getElementById("result");
+
+    if(!name) {
+        alert("Please enter your name.");
+        return;
+    }
+
+    const guest = guests.find(
+        g => g.name.toLowerCase() === name.toLowerCase()
+    );
+
+    result.style.display = "block";
+
+    document.querySelectorAll(".table").forEach(t => {
+        t.classList.remove("active");
+    });
+
+    if(!guest) {
+
+        result.innerHTML =
+        "<p>Sorry, we couldn't find your name.</p>" +
+        "<p>Please check your spelling.</p>";
+
+        return;
+    }
+
+    selectedTable = guest.table;
+
+    result.innerHTML = `
+        <p>WELCOME TO OUR CELEBRATION</p>
+        <p>Your table number is</p>
+        <div class="table-number">
+            ${guest.table === 31 ? "👑 VIP" : "TABLE " + String(guest.table).padStart(2,"0")}
+        </div>
+        <button onclick="showTable(${guest.table})">
+            VIEW TABLE GUESTS
+        </button>
+    `;
+
+    highlightTable(guest.table);
+
+    result.scrollIntoView({behavior:"smooth"});
+}
+
+// 显示同桌宾客
+function showTable(number) {
+
+    const members = guests.filter(
+        g => g.table === number
+    );
+
+    const box = document.getElementById("mapResult");
+
+    box.innerHTML = `
+        <div style="
+            background:white;
+            padding:20px;
+            margin:20px auto;
+            border:1px solid #dfcfb7;
+            border-radius:8px;
+            max-width:430px;
+        ">
+            <h2>${number === 31 ? "👑 VIP TABLE" : "TABLE " + String(number).padStart(2,"0")}</h2>
+            <p class="description">
+                ${members.length} registered guests
+            </p>
+            <ul class="guest-list">
+                ${members.length
+                    ? members.map(g => `<li>${g.name}</li>`).join("")
+                    : "<li>Guest list not available yet.</li>"
+                }
+            </ul>
+        </div>
+    `;
+
+    highlightTable(number);
+
+    box.scrollIntoView({behavior:"smooth"});
+}
+
+// 标示桌号
+function highlightTable(number) {
+
+    document.querySelectorAll(".table").forEach(t => {
+        t.classList.remove("active");
+    });
+
+    if(number !== 31) {
+        document.getElementById("table-" + number)
+            .classList.add("active");
+    } else {
+        document.querySelector(".vip")
+            .classList.add("active");
+    }
+}
+
+</script>
+
+</body>
+</html>
