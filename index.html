@@ -270,15 +270,19 @@ let selectedTable = null;
 // 建立30张普通桌
 const map = document.getElementById("seatingMap");
 
-for(let i=1; i<=30; i++) {
+map.innerHTML = "";
 
-    const button = document.createElement("div");
+for (let i = 1; i <= 30; i++) {
+
+    const button = document.createElement("button");
 
     button.className = "table";
     button.id = "table-" + i;
-    button.textContent = String(i).padStart(2,"0");
+    button.textContent = String(i).padStart(2, "0");
 
-    button.onclick = () => showTable(i);
+    button.onclick = function() {
+        showTable(i);
+    };
 
     map.appendChild(button);
 }
