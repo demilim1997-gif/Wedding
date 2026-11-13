@@ -145,9 +145,20 @@ button:active {
 }
 
 .map button.table {
-    width: 100%;
-    max-width: none;
-    margin: 0;
+    border: none;
+    border-radius: 0;
+    background:
+        radial-gradient(circle at 50% 50%, #e8d8bd 0 30%, #b49a75 31% 34%, transparent 35%),
+        radial-gradient(circle at 50% 7%, #b49a75 0 6%, transparent 7%),
+        radial-gradient(circle at 80% 20%, #b49a75 0 6%, transparent 7%),
+        radial-gradient(circle at 93% 50%, #b49a75 0 6%, transparent 7%),
+        radial-gradient(circle at 80% 80%, #b49a75 0 6%, transparent 7%),
+        radial-gradient(circle at 50% 93%, #b49a75 0 6%, transparent 7%),
+        radial-gradient(circle at 20% 80%, #b49a75 0 6%, transparent 7%),
+        radial-gradient(circle at 7% 50%, #b49a75 0 6%, transparent 7%),
+        radial-gradient(circle at 20% 20%, #b49a75 0 6%, transparent 7%);
+    color: #806d55;
+    font-weight: bold;
 }
 
 .table.active {
