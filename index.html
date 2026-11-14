@@ -6,9 +6,7 @@
 <title>Benjamin & Demi</title>
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -115,8 +113,6 @@ input {
     overflow: hidden;
 }
 
-/* 舞台 */
-
 .stage {
     position: absolute;
     left: 33%;
@@ -132,27 +128,16 @@ input {
     letter-spacing: 3px;
 }
 
-.backdrop {
-    position: absolute;
-    top: 1%;
-    left: 33%;
-    width: 34%;
-    font-size: 10px;
-    color: #998875;
-}
-
-/* 红色走道 */
+/* 红色通道与舞台、VIP共用中心线 */
 
 .aisle {
     position: absolute;
-    left: 38.5%;
+    left: 47.75%;
     top: 34%;
     width: 4.5%;
     height: 63%;
     background: #c83d35;
 }
-
-/* 普通圆桌 */
 
 .table {
     position: absolute;
@@ -179,8 +164,6 @@ input {
     transform: translate(-50%,-50%) scale(1.15);
 }
 
-/* VIP */
-
 .vip {
     width: 15%;
     background: #f4ead9;
@@ -193,8 +176,6 @@ input {
     background: #b49a75;
     color: white;
 }
-
-/* 说明 */
 
 .legend {
     font-size: 12px;
@@ -249,15 +230,13 @@ footer {
 
     <div class="map">
 
-        <div class="backdrop">LED BACKDROP</div>
-
         <div class="stage">STAGE</div>
 
         <div class="aisle"></div>
 
         <button class="table vip"
             id="table-1"
-            style="left:42.3%;top:27%;"
+            style="left:50%;top:27%;"
             onclick="showTable(1)">
             👑 01
         </button>
@@ -283,8 +262,6 @@ footer {
 <script>
 
 // 测试宾客名单
-// 之后再换成真实名单
-
 const guests = [
     {name:"Test Guest 1", table:2},
     {name:"Test Guest 2", table:2},
@@ -294,7 +271,7 @@ const guests = [
     {name:"VIP Guest 2", table:1}
 ];
 
-// 按照酒店座位图安排桌子位置
+// 酒店桌位原始坐标
 
 const positions = {
     2:[26.6,27],
@@ -335,7 +312,7 @@ const positions = {
     31:[47,84]
 };
 
-// 自动建立普通桌
+// 建立普通桌
 
 const container = document.getElementById("tableContainer");
 
@@ -347,7 +324,9 @@ for (let i = 2; i <= 31; i++) {
     button.id = "table-" + i;
     button.textContent = String(i).padStart(2,"0");
 
-    button.style.left = positions[i][0] + "%";
+    // 整体向右调整9%
+
+    button.style.left = (positions[i][0] + 9) + "%";
     button.style.top = positions[i][1] + "%";
 
     button.onclick = function() {
