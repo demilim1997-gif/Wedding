@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Benjamin & Demi | Wedding</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Benjamin & Demi</title>
 
 <style>
 * {
@@ -20,204 +19,195 @@ body {
 }
 
 header {
-    padding: 55px 15px 40px;
-    background: linear-gradient(135deg, #eee4d5, #faf7f1);
+    padding: 40px 15px;
+    background: linear-gradient(135deg,#eee4d5,#faf7f1);
     border-bottom: 1px solid #d9c5a6;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: normal;
+    letter-spacing: 2px;
 }
 
 .small-title {
     font-size: 11px;
-    letter-spacing: 5px;
-}
-
-h1 {
-    font-size: 36px;
-    font-weight: normal;
-    letter-spacing: 2px;
-    margin: 25px 0;
+    letter-spacing: 4px;
 }
 
 .date {
     font-size: 13px;
-    letter-spacing: 4px;
-}
-
-.divider {
-    color: #b69b75;
-    margin: 25px;
+    letter-spacing: 3px;
 }
 
 .container {
-    max-width: 650px;
+    max-width: 700px;
     margin: auto;
-    padding: 30px 20px;
+    padding: 25px 15px;
 }
 
 h2 {
     font-size: 22px;
     font-weight: normal;
-    letter-spacing: 2px;
 }
 
 .description {
-    font-size: 13px;
     color: #998875;
+    font-size: 13px;
     line-height: 1.8;
 }
 
 input {
     width: 100%;
     max-width: 430px;
-    padding: 17px;
-    margin-top: 20px;
+    padding: 16px;
+    margin: 15px auto;
     border: 1px solid #d6c4a7;
     border-radius: 5px;
-    background: white;
-    font-size: 15px;
+    font-size: 16px;
     text-align: center;
-}
-
-button {
-    cursor: pointer;
 }
 
 .search-button {
     display: block;
     width: 100%;
     max-width: 430px;
-    margin: 15px auto;
+    margin: 10px auto 25px;
     padding: 16px;
     background: #b49a75;
+    color: white;
     border: none;
     border-radius: 5px;
-    color: white;
-    font-size: 14px;
     letter-spacing: 2px;
 }
 
-#result {
-    display: none;
-    margin: 25px auto;
-    padding: 25px;
+#result, #mapResult {
     max-width: 430px;
+    margin: 20px auto;
+    padding: 20px;
     background: white;
     border: 1px solid #dfcfb7;
     border-radius: 8px;
 }
 
+#result:empty, #mapResult:empty {
+    display: none;
+}
+
 .table-number {
-    font-size: 35px;
+    font-size: 32px;
     color: #b49a75;
     margin: 15px;
 }
 
-.stage {
-    max-width: 430px;
-    margin: 20px auto;
-    padding: 15px;
-    background: #e9dfd0;
-    letter-spacing: 4px;
-    font-size: 13px;
-}
-
-.vip-area {
-    margin: 25px auto 35px;
+.map-heading {
+    margin-top: 45px;
 }
 
 .map {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 15px 8px;
-    margin: 30px auto;
-    max-width: 500px;
-}
-
-/* 圆桌图案 */
-.table {
     position: relative;
     width: 100%;
+    max-width: 600px;
+    aspect-ratio: 710 / 875;
+    margin: 25px auto;
+    background: #fff;
+    border: 1px solid #d8c8b2;
+    overflow: hidden;
+}
+
+/* 舞台 */
+
+.stage {
+    position: absolute;
+    left: 33%;
+    top: 5%;
+    width: 34%;
+    height: 11%;
+    background: #eee4d5;
+    border: 1px solid #b49a75;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    letter-spacing: 3px;
+}
+
+.backdrop {
+    position: absolute;
+    top: 1%;
+    left: 33%;
+    width: 34%;
+    font-size: 10px;
+    color: #998875;
+}
+
+/* 红色走道 */
+
+.aisle {
+    position: absolute;
+    left: 38.5%;
+    top: 34%;
+    width: 4.5%;
+    height: 63%;
+    background: #c83d35;
+}
+
+/* 普通圆桌 */
+
+.table {
+    position: absolute;
+    width: 6%;
     aspect-ratio: 1 / 1;
-    margin: 0;
-    padding: 0;
-    border: none;
-    background:
-        radial-gradient(circle at 50% 50%,
-        #eee1ca 0 32%,
-        #b49a75 33% 36%,
-        transparent 37%),
-        radial-gradient(circle at 50% 5%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 95% 50%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 50% 95%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 5% 50%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 18% 18%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 82% 18%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 18% 82%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 82% 82%, #b49a75 0 7%, transparent 8%);
+    transform: translate(-50%,-50%);
+    border: 1px solid #b49a75;
+    border-radius: 50%;
+    background: #fff;
     color: #806d55;
-    font-size: 12px;
+    font-size: clamp(9px, 2.2vw, 13px);
     font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0;
+    z-index: 2;
 }
 
 .table.active {
-    filter: drop-shadow(0 0 5px #b49a75);
-    transform: scale(1.08);
+    background: #b49a75;
+    color: white;
+    border: 2px solid #806d55;
+    transform: translate(-50%,-50%) scale(1.15);
 }
 
-.table.active::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border: 2px solid #b49a75;
-    border-radius: 50%;
-}
+/* VIP */
 
 .vip {
-    width: 105px;
-    height: 105px;
-    margin: auto;
-    background:
-        radial-gradient(circle at 50% 50%,
-        #f3e5c9 0 32%,
-        #b49a75 33% 36%,
-        transparent 37%),
-        radial-gradient(circle at 50% 5%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 95% 50%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 50% 95%, #b49a75 0 7%, transparent 8%),
-        radial-gradient(circle at 5% 50%, #b49a75 0 7%, transparent 8%);
-    color: #80613b;
-    font-size: 14px;
+    width: 15%;
+    background: #f4ead9;
+    border: 1.5px solid #b49a75;
+    font-size: clamp(12px, 3vw, 17px);
+    color: #806d55;
 }
 
-.guest-list {
-    padding: 0;
-    list-style: none;
-    line-height: 2;
-    font-size: 14px;
+.vip.active {
+    background: #b49a75;
+    color: white;
+}
+
+/* 说明 */
+
+.legend {
+    font-size: 12px;
+    color: #998875;
+    margin: 15px;
 }
 
 footer {
-    padding: 35px 10px;
+    padding: 30px 10px;
     background: #eee4d5;
     font-size: 11px;
     letter-spacing: 3px;
     line-height: 2;
-}
-
-@media(max-width:400px) {
-    .map {
-        gap: 10px 5px;
-    }
-
-    h1 {
-        font-size: 29px;
-    }
-
-    .table {
-        font-size: 10px;
-    }
 }
 </style>
 </head>
@@ -227,7 +217,6 @@ footer {
 <header>
     <div class="small-title">THE WEDDING CELEBRATION</div>
     <h1>Benjamin & Demi</h1>
-    <div class="divider">✧ ───── ♡ ───── ✧</div>
     <div class="date">26 DECEMBER 2026</div>
 </header>
 
@@ -237,12 +226,12 @@ footer {
 
     <p class="description">
         Welcome to our wedding celebration.<br>
-        Please enter your name to find your seat.
+        Enter your name to find your seat.
     </p>
 
     <input
-        type="text"
         id="guestName"
+        type="text"
         placeholder="Enter your full name"
         onkeydown="if(event.key==='Enter') searchGuest()"
     >
@@ -253,25 +242,33 @@ footer {
 
     <div id="result"></div>
 
-    <div class="divider">✧ ───── ♡ ───── ✧</div>
+    <div class="map-heading">
+        <h2>Seating Plan</h2>
+        <p class="description">Tap a table to view the guest list.</p>
+    </div>
 
-    <h2>Seating Plan</h2>
+    <div class="map">
 
-    <p class="description">
-        Tap a table to view the guest list.
-    </p>
+        <div class="backdrop">LED BACKDROP</div>
 
-    <div class="stage">STAGE</div>
+        <div class="stage">STAGE</div>
 
-    <div class="vip-area">
-        <button class="table vip" id="vipTable"
+        <div class="aisle"></div>
+
+        <button class="table vip"
+            id="table-1"
+            style="left:42.3%;top:27%;"
             onclick="showTable(1)">
             👑 01
         </button>
-        <p class="description">VIP TABLE</p>
+
+        <div id="tableContainer"></div>
+
     </div>
 
-    <div id="seatingMap" class="map"></div>
+    <div class="legend">
+        ● Guest Table　　👑 VIP Table
+    </div>
 
     <div id="mapResult"></div>
 
@@ -286,7 +283,7 @@ footer {
 <script>
 
 // 测试宾客名单
-// 之后再替换成真实名单
+// 之后再换成真实名单
 
 const guests = [
     {name:"Test Guest 1", table:2},
@@ -297,10 +294,50 @@ const guests = [
     {name:"VIP Guest 2", table:1}
 ];
 
+// 按照酒店座位图安排桌子位置
 
-// 建立30张普通桌：02至31号
+const positions = {
+    2:[26.6,27],
+    3:[55.6,27],
 
-const map = document.getElementById("seatingMap");
+    7:[20.1,36],
+    6:[31.4,36],
+    5:[49.3,36],
+    4:[61,36],
+
+    8:[19.4,46.6],
+    9:[26.3,46.6],
+    10:[33.7,46.6],
+    11:[47.4,46.6],
+    12:[54.6,46.6],
+    13:[62.1,46.6],
+
+    19:[12.3,54.9],
+    18:[21.4,54.9],
+    17:[32.8,54.9],
+    16:[48,54.9],
+    15:[59.4,54.9],
+    14:[70.3,54.9],
+
+    20:[11.7,64.8],
+    21:[21.8,64.8],
+    22:[32.5,64.8],
+    23:[47.7,64.8],
+    24:[60,64.8],
+    25:[69.2,64.8],
+
+    29:[12.7,75],
+    28:[32.5,75],
+    27:[48,75],
+    26:[69,75],
+
+    30:[33,84],
+    31:[47,84]
+};
+
+// 自动建立普通桌
+
+const container = document.getElementById("tableContainer");
 
 for (let i = 2; i <= 31; i++) {
 
@@ -308,15 +345,17 @@ for (let i = 2; i <= 31; i++) {
 
     button.className = "table";
     button.id = "table-" + i;
-    button.textContent = String(i).padStart(2, "0");
+    button.textContent = String(i).padStart(2,"0");
+
+    button.style.left = positions[i][0] + "%";
+    button.style.top = positions[i][1] + "%";
 
     button.onclick = function() {
         showTable(i);
     };
 
-    map.appendChild(button);
+    container.appendChild(button);
 }
-
 
 // 搜索宾客
 
@@ -337,21 +376,18 @@ function searchGuest() {
     result.style.display = "block";
 
     if (!guest) {
-        result.innerHTML = `
-            <p>Sorry, we couldn't find your name.</p>
-            <p>Please check your spelling.</p>
-        `;
+        result.innerHTML = "Sorry, we couldn't find your name.";
         return;
     }
 
-    const tableText = guest.table === 1
-        ? "👑 VIP TABLE"
-        : "TABLE " + String(guest.table).padStart(2, "0");
+    const number = String(guest.table).padStart(2,"0");
 
     result.innerHTML = `
-        <p>WELCOME TO OUR CELEBRATION</p>
+        <p>WELCOME!</p>
         <p>Your table number is</p>
-        <div class="table-number">${tableText}</div>
+        <div class="table-number">
+            ${guest.table === 1 ? "👑 " : ""}${number}
+        </div>
         <button class="search-button"
             onclick="showTable(${guest.table})">
             VIEW TABLE GUESTS
@@ -359,64 +395,44 @@ function searchGuest() {
     `;
 
     highlightTable(guest.table);
-    result.scrollIntoView({behavior:"smooth"});
 }
 
-
-// 显示同桌宾客
+// 查看同桌宾客
 
 function showTable(number) {
 
-    const members = guests.filter(
-        g => g.table === number
-    );
+    const members = guests.filter(g => g.table === number);
 
     const title = number === 1
         ? "👑 VIP TABLE 01"
-        : "TABLE " + String(number).padStart(2, "0");
+        : "TABLE " + String(number).padStart(2,"0");
 
-    const box = document.getElementById("mapResult");
-
-    box.innerHTML = `
-        <div style="
-            background:white;
-            padding:20px;
-            margin:20px auto;
-            border:1px solid #dfcfb7;
-            border-radius:8px;
-            max-width:430px;
-        ">
-            <h2>${title}</h2>
-            <p class="description">
-                ${members.length} registered guests
-            </p>
-            <ul class="guest-list">
-                ${members.length
-                    ? members.map(g => `<li>${g.name}</li>`).join("")
-                    : "<li>Guest list not available yet.</li>"
-                }
-            </ul>
-        </div>
+    document.getElementById("mapResult").innerHTML = `
+        <h2>${title}</h2>
+        <p class="description">
+            ${members.length} registered guests
+        </p>
+        <ul style="list-style:none;padding:0;line-height:2;">
+            ${members.length
+                ? members.map(g => `<li>${g.name}</li>`).join("")
+                : "<li>Guest list not available yet.</li>"
+            }
+        </ul>
     `;
 
     highlightTable(number);
-    box.scrollIntoView({behavior:"smooth"});
 }
 
-
-// 高亮选中的桌子
+// 高亮桌子
 
 function highlightTable(number) {
 
-    document.querySelectorAll(".table").forEach(t => {
-        t.classList.remove("active");
+    document.querySelectorAll(".table").forEach(table => {
+        table.classList.remove("active");
     });
 
-    if (number === 1) {
-        document.getElementById("vipTable").classList.add("active");
-    } else {
-        document.getElementById("table-" + number).classList.add("active");
-    }
+    document.getElementById("table-" + number)
+        .classList.add("active");
 }
 
 </script>
